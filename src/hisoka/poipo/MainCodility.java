@@ -95,8 +95,38 @@ public class MainCodility {
 		System.out.println("Hasil number_solitaire : "+number_solitaire(A));
 		System.out.println("Hasil number_solitaire1 : "+number_solitaire1(B));
 		System.out.println("Hasil number_solitaire1 : "+number_solitaire1(A));
+		System.out.println("Hasil number_solitaire3 : "+number_solitaire3(A));
+		System.out.println("Hasil number_solitaire3 : "+number_solitaire3(B));
 	}
 	
+	   public static int number_solitaire3(int[] A) {
+	        int[] store = new int[A.length];
+	        store[0] = A[0];
+	        for (int i = 1; i < A.length; i++) {
+	            store[i] = store[i-1];
+	            for (int minus = 2; minus <= 6; minus++) {
+	                if (i >= minus) {
+	                    store[i] = Math.max(store[i], store[i - minus]);
+	                } else {
+	                    break;
+	                }
+	            }
+	            store[i] += A[i];
+	        }
+	        return store[A.length - 1];
+	    }
+	
+	public static int number_solitaire2(int[] A)
+	{
+		int result = A[0];
+		int temp = 0;
+		for(int i = 0; i<A.length-1; i++)
+		{
+			
+		}
+		
+		return result;
+	}
 	
 	public static int number_solitaire1(int[] A)
 	{
