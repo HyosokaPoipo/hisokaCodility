@@ -27,6 +27,21 @@ public class MainCodility {
 	}
 	
 	
+	public static int min_abs_sum2(int[] A)
+	{
+		if(A.length < 2) return A[0];
+		int result = A[0];
+		for(int i=1; i<A.length; i++)
+		{
+			if(Math.abs(result+A[i]) <= Math.abs(result-A[i])) result += A[i];
+			else result -= A[i];
+		}
+		
+		
+		return result;
+	}
+	
+	
 	public static int min_abs_sum(int[] A)
 	{		
 		int odd = 0, even = 0;
