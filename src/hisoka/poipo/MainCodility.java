@@ -8,12 +8,42 @@ public class MainCodility {
 		
 		//int a = 2147483647;
 		//System.out.println(Integer.MAX_VALUE);
-		//System.out.println(a);
+		//System.out.println(a);		
+		
+		//test_Num_solitaire();
 		
 		
-		test_Num_solitaire();
+		testmin_abs_sum();
+	}
+/*****************************************************************************************************/	
+	//min_abs_sum
+	//https://codility.com/programmers/task/min_abs_sum/
+	public static void testmin_abs_sum()
+	{
+		int[] A = {1,5,2,-1};
+		
+		
+		System.out.println("Hasil " + min_abs_sum(A));
 	}
 	
+	
+	public static int min_abs_sum(int[] A)
+	{		
+		int odd = 0, even = 0;
+		for(int i=0; i<A.length; i++)
+		{
+			if(i%2 == 0)even = even + (A[i]*-1);
+			else odd = odd+(A[i]*1);
+		}
+		
+		return even+odd;
+	}
+	
+	
+	
+	
+	
+/*****************************************************************************************************/	
 	//ArrayInversionCount
 	//https://codility.com/programmers/task/array_inversion_count/
 	
