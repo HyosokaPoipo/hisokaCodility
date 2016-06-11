@@ -93,11 +93,22 @@ public class MainCodility {
 		int[] A = {1,-2,0,9,-1,-2};
 		int[] B = {1,3};
 		System.out.println("Hasil number_solitaire : "+number_solitaire(A));
-		System.out.println("Hasil number_solitaire : "+number_solitaire(B));
+		System.out.println("Hasil number_solitaire1 : "+number_solitaire1(B));
+		System.out.println("Hasil number_solitaire1 : "+number_solitaire1(A));
 	}
 	
 	
-	
+	public static int number_solitaire1(int[] A)
+	{
+		int result = 0;
+		for(int i=0; i<A.length-1; i++)
+		{
+			if(A[i]<=0) continue;
+			result += A[i];
+		}
+		
+		return result+A[A.length-1];
+	}
 	
 	
 	public static int number_solitaire(int[] A)
