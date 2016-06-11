@@ -6,10 +6,12 @@ public class MainCodility {
 
 	public static void main(String[] args) {
 		
-		int a = 2147483647;
-		System.out.println(Integer.MAX_VALUE);
-		System.out.println(a);
+		//int a = 2147483647;
+		//System.out.println(Integer.MAX_VALUE);
+		//System.out.println(a);
 		
+		
+		test_Num_solitaire();
 	}
 	
 	//ArrayInversionCount
@@ -86,5 +88,92 @@ public class MainCodility {
 /*****************************************************************************************************/	
 	//Number Solitaire
 	//https://codility.com/programmers/task/number_solitaire/
+	public static void test_Num_solitaire()
+	{
+		int[] A = {1,-2,0,9,-1,-2};
+		int[] B = {1,3};
+		System.out.println("Hasil number_solitaire : "+number_solitaire(A));
+		System.out.println("Hasil number_solitaire : "+number_solitaire(B));
+	}
+	
+	
+	
+	
+	
+	public static int number_solitaire(int[] A)
+	{
+		int currentIndex = 0;		
+		int lastIndex = 0;
+		int[] temp ;
+		int result = 0;		
+		int tempInt = 0;
+		int tempInt2 = 0;
+		if(A.length > 6)
+		{
+			lastIndex = 6;
+			temp = new int[6];
+		}else
+		{
+			lastIndex = A.length;
+			temp = new int[lastIndex];
+		}
+		while(currentIndex < A.length )
+		{			 
+			 temp = Arrays.copyOfRange(A, currentIndex, lastIndex);
+			 displayArray(temp);
+			 tempInt = findMaxArrayContents(temp);
+			 result += tempInt;
+			 tempInt2 = Arrays.binarySearch(A, currentIndex, lastIndex-1, tempInt);
+			 if(tempInt2 == 0)
+			 {
+				 currentIndex += 1; 
+			 }else
+			 {
+				 currentIndex = currentIndex + tempInt2+1;
+			 }
+			 
+			 if(lastIndex + 6 > A.length)
+				 {
+				 	lastIndex = currentIndex + (A.length - currentIndex);
+				 	temp = new int[lastIndex];
+				 }
+			 else lastIndex =  currentIndex + 6;
+		}
+		
+		
+		return result;
+	}
+	
+	public static int findMaxArrayContents(int[] input)
+	{
+		Arrays.sort(input);
+		return input[input.length-1];
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//UTILITY METHOD
+	 public static void displayArray(int[] A)
+		{
+			for (int a: A)
+			{
+				System.out.print(a+" ");
+			}
+			System.out.print("\n");
+		}
+
+	    public static void printMessage(String mess)
+		{
+			System.out.println(mess);
+		}
 
 }
